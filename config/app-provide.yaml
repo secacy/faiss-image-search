@@ -14,7 +14,7 @@ database:
   host: "localhost"
   port: 3306
   username: "root"
-  password: "password"
+  password: "1234"
   database: "pic_search"
   charset: "utf8mb4"
   pool_size: 10

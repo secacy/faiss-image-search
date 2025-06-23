@@ -123,22 +123,6 @@
                 placeholder="用逗号分隔多个标签，如：风景,自然,山水"
               />
             </el-form-item>
-
-            <el-form-item label="质量">
-              <el-radio-group v-model="uploadForm.quality">
-                <el-radio :label="100">原图质量</el-radio>
-                <el-radio :label="90">高质量</el-radio>
-                <el-radio :label="75">标准质量</el-radio>
-              </el-radio-group>
-            </el-form-item>
-
-            <el-form-item label="自动标记">
-              <el-switch
-                v-model="uploadForm.autoTag"
-                active-text="启用AI自动标记"
-                inactive-text="关闭"
-              />
-            </el-form-item>
           </el-form>
         </el-card>
 
@@ -215,9 +199,7 @@ const recentUploads = ref([])
 
 const uploadForm = ref({
   description: '',
-  tags: '',
-  quality: 90,
-  autoTag: true
+  tags: ''
 })
 
 // 计算属性
@@ -405,7 +387,10 @@ const formatDate = (dateString) => {
 
 const getImageUrl = (path) => {
   if (!path) return '/placeholder.svg'
-  return path.startsWith('http') ? path : `${import.meta.env.VITE_API_BASE_URL}/static/${path}`
+  if (path.startsWith('http')) return path
+  // 从完整路径中提取文件名
+  const filename = path.split(/[/\\]/).pop()
+  return `/static/images/${filename}`
 }
 
 const goBack = () => {

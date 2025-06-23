@@ -63,7 +63,7 @@
 
     <!-- 系统信息 -->
     <el-row :gutter="20" class="system-row">
-      <el-col :xs="24" :lg="8">
+      <el-col :xs="24">
         <el-card header="系统状态">
           <div class="system-info">
             <div class="info-item">
@@ -87,66 +87,11 @@
           </div>
         </el-card>
       </el-col>
-
-      <el-col :xs="24" :lg="8">
-        <el-card header="快速操作">
-          <div class="quick-actions">
-            <el-button type="primary" :icon="Upload" @click="goToUpload" block>
-              批量上传图片
-            </el-button>
-            <el-button type="info" :icon="View" @click="goToGallery" block>
-              查看图片库
-            </el-button>
-            <el-button type="warning" :icon="Setting" @click="goToSettings" block>
-              系统设置
-            </el-button>
-            <el-button type="danger" :icon="Delete" @click="showCleanupDialog" block>
-              清理数据
-            </el-button>
-          </div>
-        </el-card>
-      </el-col>
-
-      <el-col :xs="24" :lg="8">
-        <el-card header="存储分析">
-          <div class="storage-info">
-            <div class="storage-item">
-              <span class="label">图片总数:</span>
-              <span class="value">{{ stats.totalImages || 0 }}</span>
-            </div>
-            <div class="storage-item">
-              <span class="label">总存储:</span>
-              <span class="value">{{ formatFileSize(stats.totalStorage || 0) }}</span>
-            </div>
-            <div class="storage-item">
-              <span class="label">平均文件大小:</span>
-              <span class="value">{{ formatFileSize(stats.avgFileSize || 0) }}</span>
-            </div>
-            <div class="storage-item">
-              <span class="label">最大文件:</span>
-              <span class="value">{{ formatFileSize(stats.maxFileSize || 0) }}</span>
-            </div>
-          </div>
-        </el-card>
-      </el-col>
     </el-row>
 
 
 
-    <!-- 清理数据确认对话框 -->
-    <el-dialog v-model="showCleanup" title="数据清理" width="400px">
-      <el-alert 
-        title="警告" 
-        type="warning" 
-        description="此操作将清理系统缓存和临时文件，不会删除图片数据。" 
-        show-icon 
-        :closable="false"
-      />
-      <template #footer>
-        <el-button @click="showCleanup = false">取消</el-button>
-        <el-button type="primary" @click="performCleanup">确认清理</el-button>
-      </template>
-    </el-dialog>
+
   </div>
 </template>
 
@@ -154,8 +99,7 @@
 import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { 
-  Picture, Search, User, DataBoard, Refresh, Upload, 
-  View, Setting, Delete 
+  Picture, Search, User, DataBoard, Refresh
 } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { useAuthStore } from '@/stores/auth'
@@ -179,7 +123,7 @@ const systemInfo = reactive({
 })
 
 
-const showCleanup = ref(false)
+
 
 // 获取当前日期
 const getCurrentDate = () => {
@@ -209,7 +153,10 @@ const formatDate = (dateString) => {
 // 获取图片URL
 const getImageUrl = (path) => {
   if (!path) return '/placeholder.svg'
-  return path.startsWith('http') ? path : `${import.meta.env.VITE_API_BASE_URL}/static/${path}`
+  if (path.startsWith('http')) return path
+  // 从完整路径中提取文件名
+  const filename = path.split(/[/\\]/).pop()
+  return `/static/images/${filename}`
 }
 
 // 处理图片加载错误
@@ -219,36 +166,7 @@ const handleImageError = (event) => {
 
 
 
-// 显示清理对话框
-const showCleanupDialog = () => {
-  showCleanup.value = true
-}
 
-// 执行清理
-const performCleanup = async () => {
-  try {
-    // 这里应该调用后端清理接口
-    ElMessage.success('系统清理完成')
-    showCleanup.value = false
-  } catch (error) {
-    ElMessage.error('清理失败：' + error.message)
-  }
-}
-
-// 导航到上传页面
-const goToUpload = () => {
-  router.push('/admin/upload')
-}
-
-// 导航到图片库
-const goToGallery = () => {
-  router.push('/gallery')
-}
-
-// 导航到设置页面
-const goToSettings = () => {
-  router.push('/admin/config')
-}
 
 // 刷新数据
 const refreshData = async () => {
@@ -414,34 +332,7 @@ onMounted(() => {
   font-size: 0.9rem;
 }
 
-.quick-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
 
-.storage-info {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.storage-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.storage-item .label {
-  color: #7f8c8d;
-  font-size: 0.9rem;
-}
-
-.storage-item .value {
-  color: #2c3e50;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
 
 .image-detail {
   text-align: center;

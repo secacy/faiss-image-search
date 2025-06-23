@@ -91,9 +91,9 @@
             </div>
             <div class="mascot-text">
               <p>🌟 欢迎使用图与图寻！</p>
-              <p>上传一张图片，我将为您找到</p>
+              <p>我将为您寻找相似图像</p>
               <p>数据库中最相似的图像</p>
-              <p>让AI带您探索视觉世界的奇妙~ ✨</p>
+              <p>带您探索视觉世界的奇妙~ ✨</p>
             </div>
           </div>
         </div>
@@ -272,7 +272,6 @@ onMounted(() => {
   box-shadow: var(--shadow-light);
 }
 
-/* card-header样式已移除 */
 
 .upload-section {
   margin: 20px 0;

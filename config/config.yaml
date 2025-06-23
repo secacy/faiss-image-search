@@ -14,7 +14,7 @@ server:
 
 # 数据库配置
 database:
-  host: "localhost"
+  host: "127.0.0.1"
   port: 3306
   username: "root"
   password: "1234"
@@ -25,7 +25,7 @@ database:
 
 # 文件存储配置
 storage:
-  upload_dir: "data/images"
+  upload_dir: "D:\\codes\\Projects\\pic-search\\faiss-image-search-v3\\backend\\data\\images"
   max_file_size: 10485760  # 10MB
   allowed_extensions:
     - "jpg"
@@ -37,7 +37,7 @@ storage:
 
 # Faiss索引配置
 faiss:
-  index_path: "data/index/image_features.index"
+  index_path: "D:\\codes\\Projects\\pic-search\\faiss-image-search-v3\\backend\\data\\index\\image_features.index"
   feature_dim: 2048
   index_type: "IndexFlatIP"  # 内积相似度索引
   nprobe: 10

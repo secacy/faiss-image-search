@@ -267,7 +267,10 @@ const handlePageChange = () => {
 // 获取图片URL
 const getImageUrl = (path) => {
   if (!path) return '/placeholder.svg'
-  return path.startsWith('http') ? path : `${import.meta.env.VITE_API_BASE_URL}/static/${path}`
+  if (path.startsWith('http')) return path
+  // 从完整路径中提取文件名
+  const filename = path.split(/[/\\]/).pop()
+  return `/static/images/${filename}`
 }
 
 // 处理图片加载错误
