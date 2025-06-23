@@ -5,7 +5,6 @@
 
 from .user import User
 from .image import Image
-from .search_history import SearchHistory
 from .faiss_index import FaissIndexInfo
 from .system_config import SystemConfig
 from .operation_log import OperationLog
@@ -13,7 +12,6 @@ from .operation_log import OperationLog
 __all__ = [
     "User",
     "Image", 
-    "SearchHistory",
     "FaissIndexInfo",
     "SystemConfig",
     "OperationLog"

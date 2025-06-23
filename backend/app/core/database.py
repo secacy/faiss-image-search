@@ -62,7 +62,7 @@ async def create_tables():
     """创建数据库表"""
     try:
         # 导入所有模型以确保它们被注册
-        from ..models import user, image, search_history, faiss_index, system_config, operation_log
+        from ..models import user, image, faiss_index, system_config, operation_log
         
         # 在单独的线程中运行数据库表创建
         def _create_tables():

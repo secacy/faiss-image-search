@@ -101,7 +101,7 @@ class Settings(BaseModel):
     admin: AdminConfig = AdminConfig()
 
 
-def load_config_from_yaml(config_path: str = "config/config.yaml") -> dict:
+def load_config_from_yaml(config_path: str = "D:\\codes\\Projects\\pic-search\\faiss-image-search-v3\\config\\config.yaml") -> dict:
     """从YAML文件加载配置"""
     try:
         # 尝试相对路径和绝对路径

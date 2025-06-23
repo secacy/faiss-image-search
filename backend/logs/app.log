@@ -1,0 +1,38 @@
+2025-06-24 00:21:31 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:21:34 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:21:34 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:22:10 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:22:10 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:28:09 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:28:13 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:28:13 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:32:54 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:32:58 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:32:58 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:34:02 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:34:02 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:34:23 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:34:27 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:34:27 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:34:27 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 00:34:27 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 00:34:27 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 00:34:27 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 00:34:27 | INFO     | app.services.faiss_service:_load_or_create_index:74 - 创建新索引: IndexFlatIP
+2025-06-24 00:34:27 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 0
+2025-06-24 00:34:47 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: 2.jpg
+2025-06-24 00:34:48 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 00:34:48 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.542秒
+2025-06-24 00:34:58 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 1b6bf20a09f841168cc37d24815d23b5.jpg
+2025-06-24 00:34:59 | ERROR    | app.api.endpoints.images:upload_image:152 - 图片上传失败: (pymysql.err.IntegrityError) (1062, "Duplicate entry '0' for key 'images.ix_images_faiss_id'")
+[SQL: UPDATE images SET faiss_id=%(faiss_id)s WHERE images.id = %(images_id)s]
+[parameters: {'faiss_id': 0, 'images_id': 2}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-06-24 00:36:04 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 1b6bf20a09f841168cc37d24815d23b5.jpg
+2025-06-24 00:36:05 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 1b6bf20a09f841168cc37d24815d23b5.jpg -> 9fc8fbe55e354bbfb0350bb0224d8a8e.jpg
+2025-06-24 00:36:24 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 2.jpg
+2025-06-24 00:36:25 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 2.jpg -> 828fd107c82d46809a7e64263264066c.jpg
+2025-06-24 00:36:38 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 00:36:38 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 00:36:38 | INFO     | app.services.faiss_service:cleanup:228 - 正在清理Faiss服务资源...
+2025-06-24 00:36:38 | INFO     | app.services.faiss_service:cleanup:238 - Faiss服务资源清理完成
