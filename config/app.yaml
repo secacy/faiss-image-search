@@ -1,0 +1,72 @@
+# 图与图寻 应用配置
+
+# 服务器配置
+server:
+  host: "0.0.0.0"
+  port: 8000
+  debug: true
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://127.0.0.1:3000"
+
+# 数据库配置
+database:
+  host: "localhost"
+  port: 3306
+  username: "root"
+  password: "1234"
+  database: "pic_search"
+  charset: "utf8mb4"
+  pool_size: 10
+  pool_recycle: 3600
+
+# 文件存储配置
+storage:
+  upload_dir: "data/images"
+  max_file_size: 10485760  # 10MB
+  allowed_extensions:
+    - "jpg"
+    - "jpeg"
+    - "png"
+    - "bmp"
+    - "webp"
+  thumbnail_size: [256, 256]
+
+# Faiss 索引配置
+faiss:
+  index_path: "data/index/image_features.index"
+  feature_dim: 2048  # ResNet50 特征维度
+  index_type: "IndexFlatIP"  # 内积索引
+  nprobe: 10  # 搜索时的探测数量
+
+# 模型配置
+model:
+  name: "resnet50"
+  pretrained: true
+  device: "cuda"  # cuda/cpu
+  batch_size: 32
+
+# JWT 认证配置
+auth:
+  secret_key: "your-secret-key-change-in-production"
+  algorithm: "HS256"
+  access_token_expire_minutes: 1440  # 24小时
+
+# 日志配置
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/app.log"
+  max_size: 10485760  # 10MB
+  backup_count: 5
+
+# 搜索配置
+search:
+  default_k: 10
+  max_k: 100
+  similarity_threshold: 0.5
+
+# 管理员配置
+admin:
+  default_username: "admin"
+  default_password: "admin123" 

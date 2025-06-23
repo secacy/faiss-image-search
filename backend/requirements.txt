@@ -1,0 +1,52 @@
+# Web框架
+fastapi
+uvicorn[standard]
+python-multipart
+
+# 数据库
+sqlalchemy
+pymysql
+alembic
+
+# 认证
+python-jose[cryptography]
+passlib[bcrypt]
+python-jwt
+
+# 图像处理
+torch
+torchvision
+Pillow
+opencv-python
+
+# 相似度搜索
+faiss-cpu
+# 如需GPU加速可替换为: faiss-gpu
+
+# 数据处理
+numpy
+pandas
+
+# 配置文件
+pyyaml
+python-dotenv
+
+# HTTP客户端
+httpx
+requests
+
+# 工具库
+loguru
+tqdm
+rich
+
+# 开发工具
+pytest
+pytest-asyncio
+black
+isort
+flake8
+
+# 类型提示
+pydantic
+typing-extensions
