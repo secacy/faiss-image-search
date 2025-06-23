@@ -3,13 +3,12 @@
     <div class="login-container">
       <!-- Logo和标题 -->
       <div class="login-header">
-        <div class="logo">
-          <el-icon size="64" color="#3498db">
-            <Picture />
-          </el-icon>
+        <el-icon size="48" color="#409eff">
+          <Picture />
+        </el-icon>
+        <div class="header-text">
+          <h1>图与图寻 - 管理后台</h1>
         </div>
-        <h1>图与图寻</h1>
-        <p>管理员登录</p>
       </div>
 
       <!-- 登录表单 -->
@@ -18,7 +17,6 @@
         :model="loginForm"
         :rules="loginRules"
         class="login-form"
-        size="large"
         @submit.prevent="handleLogin"
       >
         <el-form-item prop="username">
@@ -55,34 +53,18 @@
             class="login-button"
             :loading="loading"
             @click="handleLogin"
-            size="large"
-            round
           >
-            <span v-if="!loading">立即登录</span>
-            <span v-else>登录中...</span>
+            {{ loading ? '登录中...' : '登录' }}
           </el-button>
         </el-form-item>
       </el-form>
 
-      <!-- 额外信息 -->
+      <!-- 底部信息 -->
       <div class="login-footer">
-        <el-divider>
-          <el-icon><InfoFilled /></el-icon>
-        </el-divider>
-        <p class="footer-text">
-          默认管理员账号：admin / admin123
-        </p>
         <p class="footer-links">
-          <router-link to="/">← 返回前台</router-link>
+          <router-link to="/">← 返回首页</router-link>
         </p>
       </div>
-    </div>
-
-    <!-- 背景装饰 -->
-    <div class="login-background">
-      <div class="bg-circle circle-1"></div>
-      <div class="bg-circle circle-2"></div>
-      <div class="bg-circle circle-3"></div>
     </div>
   </div>
 </template>
@@ -90,7 +72,7 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { Picture, User, Lock, InfoFilled } from '@element-plus/icons-vue'
+import { Picture, User, Lock } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { useAuthStore } from '@/stores/auth'
 
@@ -167,206 +149,122 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  position: relative;
-  overflow: hidden;
+  background: #f5f7fa;
   padding: 20px;
 }
 
 .login-container {
   background: white;
-  border-radius: 20px;
-  padding: 60px 50px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e4e7ed;
+  padding: 40px;
   width: 100%;
-  max-width: 420px;
-  position: relative;
-  z-index: 2;
-  animation: slideUp 0.8s ease-out;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .login-header {
-  text-align: center;
-  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e4e7ed;
 }
 
-.logo {
-  margin-bottom: 20px;
+.header-text {
+  flex: 1;
 }
 
-.login-header h1 {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin: 0 0 10px 0;
-  font-weight: 700;
+.header-text h1 {
+  font-size: 1.5rem;
+  color: #303133;
+  margin: 0 0 4px 0;
+  font-weight: 600;
 }
 
-.login-header p {
-  font-size: 1.1rem;
-  color: #7f8c8d;
+.header-text p {
+  font-size: 0.9rem;
+  color: #909399;
   margin: 0;
 }
 
 .login-form {
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .login-form .el-form-item {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .login-button {
   width: 100%;
-  height: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background: linear-gradient(135deg, #3498db, #2980b9);
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.login-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+  height: 42px;
 }
 
 .login-footer {
   text-align: center;
+  border-top: 1px solid #e4e7ed;
+  padding-top: 16px;
 }
 
 .footer-text {
-  color: #7f8c8d;
-  font-size: 0.9rem;
-  margin: 15px 0;
+  color: #909399;
+  font-size: 0.85rem;
+  margin: 0 0 8px 0;
 }
 
 .footer-links {
-  margin: 20px 0 0 0;
+  margin: 0;
 }
 
 .footer-links a {
-  color: #3498db;
+  color: #409eff;
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
+  font-size: 0.85rem;
 }
 
 .footer-links a:hover {
-  color: #2980b9;
   text-decoration: underline;
-}
-
-/* 背景装饰 */
-.login-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
-.bg-circle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  animation: float 6s ease-in-out infinite;
-}
-
-.circle-1 {
-  width: 100px;
-  height: 100px;
-  top: 10%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.circle-2 {
-  width: 150px;
-  height: 150px;
-  top: 70%;
-  right: 10%;
-  animation-delay: 2s;
-}
-
-.circle-3 {
-  width: 80px;
-  height: 80px;
-  top: 50%;
-  left: 80%;
-  animation-delay: 4s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    transform: translateY(-20px) scale(1.1);
-  }
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
   .login-container {
-    padding: 40px 30px;
-    margin: 20px;
+    padding: 30px 24px;
+    margin: 0 16px;
   }
   
-  .login-header h1 {
-    font-size: 2rem;
+  .header-text h1 {
+    font-size: 1.3rem;
+  }
+  
+  .login-header {
+    gap: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .admin-login {
-    padding: 15px;
+    padding: 16px;
   }
   
   .login-container {
-    padding: 30px 25px;
-    margin: 10px;
+    padding: 24px 20px;
+    margin: 0;
   }
   
-  .login-header h1 {
-    font-size: 1.8rem;
+  .header-text h1 {
+    font-size: 1.2rem;
   }
   
-  .bg-circle {
-    display: none;
+  .login-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
   }
-}
-
-/* Element Plus 样式覆盖 */
-:deep(.el-input__inner) {
-  height: 50px;
-  border-radius: 25px;
-  border: 2px solid #ecf0f1;
-  transition: all 0.3s ease;
-}
-
-:deep(.el-input__inner:focus) {
-  border-color: #3498db;
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-}
-
-:deep(.el-checkbox__label) {
-  color: #7f8c8d;
-}
-
-:deep(.el-divider__text) {
-  background-color: white;
-  color: #bdc3c7;
+  
+  .header-text {
+    text-align: center;
+  }
 }
 </style> 

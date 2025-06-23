@@ -151,3 +151,7 @@ npm run dev
 ## 许可证
 
 MIT License 
+
+
+## 管理后台说明
+默认账号：admin / admin123
