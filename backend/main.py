@@ -76,7 +76,9 @@ app.add_middleware(
 )
 
 # 静态文件服务
-app.mount("/static", StaticFiles(directory="data"), name="static")
+import os
+static_dir = os.path.join(os.path.dirname(__file__), "data")
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 # 注册API路由
 app.include_router(api_router, prefix="/api/v1")

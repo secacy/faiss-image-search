@@ -48,7 +48,7 @@ class FaissService(LoggerMixin):
                 self.executor, self._load_or_create_index
             )
             
-            self.logger.info(f"Faiss索引初始化完成，当前向量数量: {self.index.ntotal}")
+            self.logger.info(f"Faiss索引初始化完成，当前向量数量: {self.index.ntotal}, 下一个faiss_id: {self.next_faiss_id}")
             
         except Exception as e:
             self.logger.error(f"Faiss索引初始化失败: {e}")
@@ -69,6 +69,9 @@ class FaissService(LoggerMixin):
                     self.id_mapping = mapping_data.get('id_mapping', {})
                     self.reverse_mapping = mapping_data.get('reverse_mapping', {})
                     self.next_faiss_id = mapping_data.get('next_faiss_id', 0)
+            else:
+                # 如果没有映射文件，从数据库重建映射
+                self._rebuild_mapping_from_db()
         else:
             # 创建新索引
             self.logger.info(f"创建新索引: {self.index_type}")
@@ -85,6 +88,49 @@ class FaissService(LoggerMixin):
             else:
                 # 默认使用内积索引
                 self.index = faiss.IndexFlatIP(self.feature_dim)
+            
+            # 为新索引从数据库重建映射
+            self._rebuild_mapping_from_db()
+    
+    def _rebuild_mapping_from_db(self):
+        """从数据库重建ID映射"""
+        try:
+            from sqlalchemy.orm import sessionmaker
+            from sqlalchemy import create_engine
+            
+            # 创建数据库连接
+            engine = create_engine(settings.database.url)
+            SessionLocal = sessionmaker(bind=engine)
+            db = SessionLocal()
+            
+            try:
+                # 查询所有有效的图片记录
+                images = db.query(Image).filter(
+                    Image.is_active == True,
+                    Image.faiss_id.isnot(None)
+                ).order_by(Image.faiss_id).all()
+                
+                # 重建映射
+                for image in images:
+                    self.id_mapping[image.faiss_id] = image.id
+                    self.reverse_mapping[image.id] = image.faiss_id
+                
+                # 设置下一个可用的faiss_id
+                if images:
+                    max_faiss_id = max(image.faiss_id for image in images)
+                    self.next_faiss_id = max_faiss_id + 1
+                else:
+                    self.next_faiss_id = 0
+                
+                self.logger.info(f"从数据库重建映射完成，下一个可用faiss_id: {self.next_faiss_id}")
+                
+            finally:
+                db.close()
+                
+        except Exception as e:
+            self.logger.error(f"重建映射失败: {e}")
+            # 如果重建失败，至少确保不会从0开始
+            self.next_faiss_id = 1000
     
     async def add_vector(self, feature_vector: np.ndarray, image_id: int) -> int:
         """

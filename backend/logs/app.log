@@ -36,3 +36,238 @@
 2025-06-24 00:36:38 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
 2025-06-24 00:36:38 | INFO     | app.services.faiss_service:cleanup:228 - 正在清理Faiss服务资源...
 2025-06-24 00:36:38 | INFO     | app.services.faiss_service:cleanup:238 - Faiss服务资源清理完成
+2025-06-24 00:48:21 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:48:25 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:48:25 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 00:48:25 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 00:48:25 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 00:48:25 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 00:48:25 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 00:48:25 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 00:48:25 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 3
+2025-06-24 00:48:29 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 微信图片_20240925155310.jpg
+2025-06-24 00:48:29 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 微信图片_20240925155310.jpg -> 023336c8e23e479ab6d9b39fc3cb7339.jpg
+2025-06-24 00:48:29 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 微信图片_20240925155311.jpg
+2025-06-24 00:48:29 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 微信图片_20240925155311.jpg -> 150ce3dffc2d44688c93616c0772f00f.jpg
+2025-06-24 00:48:29 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 微信图片_20240925155313.jpg
+2025-06-24 00:48:30 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 微信图片_20240925155313.jpg -> 54144d200f1e4e67bcc4f8957f29fe45.jpg
+2025-06-24 00:48:30 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 微信图片_202409251553101.jpg
+2025-06-24 00:48:30 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 微信图片_202409251553101.jpg -> b8636bf5f07e41ec83a545bde9e112c7.jpg
+2025-06-24 00:48:30 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 微信图片_202409251553111.jpg
+2025-06-24 00:48:30 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 微信图片_202409251553111.jpg -> 0a89534e622448a194f13ddf8c0249d9.jpg
+2025-06-24 00:48:30 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 微信图片_202409251553131.jpg
+2025-06-24 00:48:30 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 微信图片_202409251553131.jpg -> a3adc68d3c024cdeab6bec8ecac304a7.jpg
+2025-06-24 00:48:30 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 微信图片_202409251553141.jpg
+2025-06-24 00:48:30 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 微信图片_202409251553141.jpg -> 6611d110c0d44c939a778d50119aac6d.jpg
+2025-06-24 00:48:31 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 微信图片_20240925160112.png
+2025-06-24 00:48:31 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 微信图片_20240925160112.png -> 3971c73543914e2cb99ce3fbb4ee84c8.png
+2025-06-24 00:48:31 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 微信图片_20240925155314.jpg
+2025-06-24 00:48:31 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 微信图片_20240925155314.jpg -> 8162be3bef384cd8b13743410e271aa3.jpg
+2025-06-24 00:48:31 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 123247778_p0_master1200.jpg
+2025-06-24 00:48:31 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 123247778_p0_master1200.jpg -> d09e11c356f24a2da5c0375027598d7e.jpg
+2025-06-24 00:48:32 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 下载1.png
+2025-06-24 00:48:32 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 下载1.png -> b320af81b3aa4d78a645beec681e0431.png
+2025-06-24 00:48:32 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: f7b45c9a0b794c789877e1d687d4ef76.jpg
+2025-06-24 00:48:32 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: f7b45c9a0b794c789877e1d687d4ef76.jpg -> 79f3e8e3176a49a08fb4870579ec0d0c.jpg
+2025-06-24 00:48:32 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 3.jpg
+2025-06-24 00:48:32 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 3.jpg -> ea045a5b10c84f0a9a5948e6ea106343.jpg
+2025-06-24 00:48:32 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: c85ca642880411ebb6edd017c2d2eca2.jpg
+2025-06-24 00:48:33 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: c85ca642880411ebb6edd017c2d2eca2.jpg -> 9a57dfda71954713a3f3295fd5f65d59.jpg
+2025-06-24 00:48:33 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 7528f43d882311ebb6edd017c2d2eca2.jpg
+2025-06-24 00:48:33 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 7528f43d882311ebb6edd017c2d2eca2.jpg -> aef37562b5a340498d7d0ac81a6611bb.jpg
+2025-06-24 00:48:34 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: b1059f4177e24af2bc60d678bd082870.jpg
+2025-06-24 00:48:34 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: b1059f4177e24af2bc60d678bd082870.jpg -> 182ce9d943e341e0986217e92fd97c6e.jpg
+2025-06-24 00:48:34 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: ecb27dbd102140a59e59a56b1de52cfd.jpg
+2025-06-24 00:48:34 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: ecb27dbd102140a59e59a56b1de52cfd.jpg -> 9a4b1ebd17c041169c9940dc8f44630d.jpg
+2025-06-24 00:53:28 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 2387ae258a104923ad649dbb740b4f8b.jpg
+2025-06-24 00:53:28 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 2387ae258a104923ad649dbb740b4f8b.jpg -> 25492f55f0e64d6a95bf243a7545d8ff.jpg
+2025-06-24 01:00:29 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:00:31 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:00:31 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:00:31 | INFO     | app.services.faiss_service:cleanup:228 - 正在清理Faiss服务资源...
+2025-06-24 01:00:31 | INFO     | app.services.faiss_service:cleanup:238 - Faiss服务资源清理完成
+2025-06-24 01:00:33 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:00:33 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:00:34 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:00:34 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:00:34 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:00:34 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:00:34 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:00:34 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 21, 下一个faiss_id: 21
+2025-06-24 01:00:36 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:00:36 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:00:36 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:00:36 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:00:37 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:00:37 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:00:37 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:00:37 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 21, 下一个faiss_id: 21
+2025-06-24 01:01:59 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:01:59 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:01:59 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:01:59 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:02:03 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:02:03 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:02:04 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:02:04 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:02:04 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:02:04 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:02:04 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:02:04 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 21, 下一个faiss_id: 21
+2025-06-24 01:02:37 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:02:37 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:02:37 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:02:37 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:03:02 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:03:02 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:03:02 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:03:02 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:03:02 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:03:05 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:03:06 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:03:06 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:03:06 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:03:06 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:03:06 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:03:06 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:03:06 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:03:06 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:03:06 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:03:06 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:03:06 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 21, 下一个faiss_id: 21
+2025-06-24 01:03:06 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:03:06 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:03:06 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:03:06 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 21, 下一个faiss_id: 21
+2025-06-24 01:04:42 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: 80c14d548d12bd0a557bf0f162686abc85646678.png
+2025-06-24 01:04:43 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: 80c14d548d12bd0a557bf0f162686abc85646678.png -> 22a0c8a1443344078237903b317179a8.png
+2025-06-24 01:05:00 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 01:05:00 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: small083211ufsXJ1743985931.jpg -> 9f794a7b6d2841cb85f8b461035cb500.jpg
+2025-06-24 01:05:52 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:05:52 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:05:52 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:05:52 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:05:57 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:05:57 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:05:57 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:05:57 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:05:57 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:05:57 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:05:57 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:05:57 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 23, 下一个faiss_id: 23
+2025-06-24 01:06:37 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:06:37 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:06:37 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:06:37 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:06:41 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:06:41 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:06:41 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:06:41 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:06:41 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:06:42 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:06:42 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:06:42 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:06:42 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:06:42 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:06:42 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:06:42 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:06:42 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 23, 下一个faiss_id: 23
+2025-06-24 01:06:45 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:06:45 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:06:45 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:06:45 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:06:45 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:06:45 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:06:45 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:06:45 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 23, 下一个faiss_id: 23
+2025-06-24 01:06:46 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:06:46 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:06:46 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:06:46 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:06:46 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:06:46 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:06:46 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:06:46 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 23, 下一个faiss_id: 23
+2025-06-24 01:09:14 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:09:14 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:09:14 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:09:14 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:09:15 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:09:15 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:09:15 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:09:15 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:09:19 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:09:19 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:09:19 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:09:19 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:09:19 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:09:19 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:09:19 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:09:19 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 23, 下一个faiss_id: 23
+2025-06-24 01:09:19 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:09:19 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:09:19 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:09:19 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:09:20 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:09:20 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:09:20 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:09:20 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:09:20 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:09:20 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:09:20 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:09:20 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 23, 下一个faiss_id: 23
+2025-06-24 01:09:24 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:09:24 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:09:24 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:09:24 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:09:24 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:09:24 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:09:24 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:09:24 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 23, 下一个faiss_id: 23
+2025-06-24 01:09:46 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:09:46 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:09:46 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:09:46 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:09:50 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:09:50 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:09:50 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:09:50 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:09:50 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:09:50 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:09:50 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: data/index/image_features.index
+2025-06-24 01:09:50 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 23, 下一个faiss_id: 23
+2025-06-24 01:10:22 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:10:22 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:10:22 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:10:22 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:10:27 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:10:27 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:11:20 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:11:20 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:11:20 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:11:20 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:11:28 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:11:31 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:11:32 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:11:32 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:11:32 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:11:32 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:11:32 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:11:32 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 01:11:32 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 23, 下一个faiss_id: 23
+2025-06-24 01:11:35 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:11:35 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:11:35 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:11:35 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 01:11:39 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:11:40 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 01:11:40 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 01:11:40 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 01:11:40 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 01:11:40 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 01:11:40 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 01:11:40 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 23, 下一个faiss_id: 23
+2025-06-24 01:11:58 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 01:11:58 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 01:11:58 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 01:11:58 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
