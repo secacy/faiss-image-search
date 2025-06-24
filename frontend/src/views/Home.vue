@@ -178,11 +178,9 @@ const performSearch = async () => {
       queryImage = previewUrl.value
     } else if (imageUrl.value.trim()) {
       // URL搜索
-      const formData = new FormData()
-      formData.append('image_url', imageUrl.value)
-      formData.append('k', searchParams.value.k)
-      
-      response = await searchApi.searchByUrl(formData)
+      response = await searchByUrl(imageUrl.value, {
+        top_k: searchParams.value.k
+      })
       queryType = 'url'
       queryImage = imageUrl.value
     }

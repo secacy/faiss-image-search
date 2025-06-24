@@ -167,7 +167,7 @@
               :key="upload.id"
               class="recent-item"
             >
-              <img :src="getImageUrl(upload.file_path)" :alt="upload.filename" />
+              <img :src="getImageUrl(upload)" :alt="upload.filename" />
               <div class="recent-info">
                 <div class="recent-name">{{ upload.original_name }}</div>
                 <div class="recent-time">{{ formatDate(upload.upload_time) }}</div>
@@ -350,11 +350,11 @@ const uploadSingleFile = async (fileItem) => {
     const response = await imageApi.uploadImage(formData)
     clearInterval(progressInterval)
     
-    if (response.data.success) {
+    if (response.success) {
       fileItem.progress = 100
-      return response.data.data
+      return response.data
     } else {
-      throw new Error(response.data.message || '上传失败')
+      throw new Error(response.message || '上传失败')
     }
   } catch (error) {
     clearInterval(progressInterval)
@@ -385,9 +385,17 @@ const formatDate = (dateString) => {
   return new Date(dateString).toLocaleString('zh-CN')
 }
 
-const getImageUrl = (path) => {
+const getImageUrl = (imageOrPath) => {
+  // 如果是图片对象且有url属性，优先使用
+  if (typeof imageOrPath === 'object' && imageOrPath.url) {
+    return imageOrPath.url
+  }
+  
+  // 兼容字符串路径的情况
+  const path = typeof imageOrPath === 'string' ? imageOrPath : imageOrPath?.file_path
   if (!path) return '/placeholder.svg'
   if (path.startsWith('http')) return path
+  
   // 从完整路径中提取文件名
   const filename = path.split(/[/\\]/).pop()
   return `/static/images/${filename}`
@@ -401,8 +409,8 @@ const goBack = () => {
 const loadRecentUploads = async () => {
   try {
     const response = await imageApi.getImages({ page: 1, page_size: 5 })
-    if (response.data.success) {
-      recentUploads.value = response.data.data.images || []
+    if (response.success) {
+      recentUploads.value = response.data.images || []
     }
   } catch (error) {
     console.error('加载最近上传失败:', error)

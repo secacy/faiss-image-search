@@ -107,7 +107,7 @@
           <!-- 图片容器 -->
           <div class="image-container" @click="openImageDetail(image)">
             <img
-              :src="getImageUrl(image.file_path)"
+              :src="getImageUrl(image)"
               :alt="image.filename"
               @error="handleImageError"
               loading="lazy"
@@ -163,7 +163,7 @@
     <el-dialog v-model="showImageDetail" :title="currentImage?.original_name" width="80%">
       <div v-if="currentImage" class="image-detail">
         <div class="detail-image">
-          <img :src="getImageUrl(currentImage.file_path)" :alt="currentImage.filename" />
+          <img :src="getImageUrl(currentImage)" :alt="currentImage.filename" />
         </div>
         <div class="detail-info">
           <el-descriptions title="图片信息" :column="2" border>
@@ -224,14 +224,14 @@ const loadImages = async () => {
     }
     
     const response = await imageApi.getImages(params)
-    if (response.data.success) {
-      images.value = response.data.data.images || []
-      total.value = response.data.data.pagination?.total || 0
+    if (response.success) {
+      images.value = response.data.images || []
+      total.value = response.data.pagination?.total || 0
       
       // 计算总大小
       totalSize.value = images.value.reduce((sum, img) => sum + (img.file_size || 0), 0)
     } else {
-      ElMessage.error(response.data.message || '加载图片失败')
+      ElMessage.error(response.message || '加载图片失败')
     }
   } catch (error) {
     console.error('加载图片失败:', error)
@@ -265,9 +265,17 @@ const handlePageChange = () => {
 }
 
 // 获取图片URL
-const getImageUrl = (path) => {
+const getImageUrl = (imageOrPath) => {
+  // 如果是图片对象且有url属性，优先使用
+  if (typeof imageOrPath === 'object' && imageOrPath.url) {
+    return imageOrPath.url
+  }
+  
+  // 兼容字符串路径的情况
+  const path = typeof imageOrPath === 'string' ? imageOrPath : imageOrPath?.file_path
   if (!path) return '/placeholder.svg'
   if (path.startsWith('http')) return path
+  
   // 从完整路径中提取文件名
   const filename = path.split(/[/\\]/).pop()
   return `/static/images/${filename}`
@@ -325,12 +333,12 @@ const deleteImage = async (image) => {
     )
     
     const response = await imageApi.deleteImage(image.id)
-    if (response.data.success) {
+    if (response.success) {
       ElMessage.success('删除成功')
       showImageDetail.value = false
       loadImages()
     } else {
-      ElMessage.error(response.data.message || '删除失败')
+      ElMessage.error(response.message || '删除失败')
     }
   } catch (error) {
     if (error !== 'cancel') {

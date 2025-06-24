@@ -51,7 +51,9 @@ class Image(Base):
             "upload_by": self.upload_by,
             "tags": self.tags,
             "description": self.description,
-            "is_active": self.is_active
+            "is_active": self.is_active,
+            "url": self.url,
+            "thumbnail_url": self.thumbnail_url
         }
         
         if include_path:

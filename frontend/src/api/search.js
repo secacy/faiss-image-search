@@ -34,8 +34,8 @@ export const searchApi = {
 export const searchByFile = searchApi.searchByUpload;
 export const searchByUrl = (url, params) => {
   const formData = new FormData();
-  formData.append("url", url);
-  if (params.top_k) formData.append("top_k", params.top_k);
+  formData.append("image_url", url); 
+  if (params.top_k) formData.append("k", params.top_k); 
   if (params.threshold) formData.append("threshold", params.threshold);
   return searchApi.searchByUrl(formData);
 };

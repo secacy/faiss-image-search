@@ -54,7 +54,7 @@
       >
         <div class="image-container">
           <img 
-            :src="getImageUrl(image.thumbnail_path || image.file_path)" 
+            :src="getImageUrl(image)" 
             :alt="image.filename"
             @error="handleImageError"
             loading="lazy"
@@ -119,7 +119,7 @@
     >
       <div v-if="currentImage" class="image-detail">
         <div class="detail-image">
-          <img :src="getImageUrl(currentImage.file_path)" :alt="currentImage.filename" />
+          <img :src="getImageUrl(currentImage)" :alt="currentImage.filename" />
         </div>
         <div class="detail-info">
           <el-descriptions title="图片信息" :column="2" border>
@@ -209,9 +209,20 @@ const handlePageChange = () => {
 }
 
 // 获取图片URL
-const getImageUrl = (path) => {
+const getImageUrl = (imageOrPath) => {
+  // 如果是图片对象且有url属性，优先使用
+  if (typeof imageOrPath === 'object' && imageOrPath.url) {
+    return imageOrPath.url
+  }
+  
+  // 兼容字符串路径的情况
+  const path = typeof imageOrPath === 'string' ? imageOrPath : imageOrPath?.file_path
   if (!path) return '/placeholder.svg'
-  return path.startsWith('http') ? path : `${import.meta.env.VITE_API_BASE_URL}/static/${path}`
+  if (path.startsWith('http')) return path
+  
+  // 从完整路径中提取文件名
+  const filename = path.split(/[/\\]/).pop()
+  return `/static/images/${filename}`
 }
 
 // 处理图片加载错误
@@ -255,7 +266,7 @@ const searchSimilar = (image) => {
 // 下载图片
 const downloadImage = (image) => {
   const link = document.createElement('a')
-  link.href = getImageUrl(image.file_path)
+      link.href = getImageUrl(image)
   link.download = image.filename
   document.body.appendChild(link)
   link.click()
