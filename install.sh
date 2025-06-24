@@ -27,10 +27,8 @@ echo "✅ Node.js版本: $node_version"
 read -p "🤔 是否激活Python虚拟环境？(y/n): " create_venv
 if [ "$create_venv" = "y" ] || [ "$create_venv" = "Y" ]; then
     echo "📦 激活虚拟环境..."
-    # python3 -m venv venv
-    # source venv/bin/activate
-    # conda create -n pic-test3 python=3.10 -y
-    conda activate pic-test3
+    python3 -m venv venv
+    source venv/bin/activate
     echo "✅ 虚拟环境已激活"
 fi
 
@@ -83,8 +81,6 @@ echo "2. 修改配置文件:"
 echo "   编辑 config/app.yaml 中的数据库连接信息"
 echo ""
 echo "3. 启动后端服务:"
-echo "   python scripts/start.py --reload"
-echo "   或者:"
 echo "   cd backend && python main.py"
 echo ""
 echo "4. 启动前端服务:"

@@ -38,14 +38,6 @@ requests
 # 工具库
 loguru
 tqdm
-rich
-
-# 开发工具
-pytest
-pytest-asyncio
-black
-isort
-flake8
 
 # 类型提示
 pydantic

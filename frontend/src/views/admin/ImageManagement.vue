@@ -42,28 +42,6 @@
       </el-row>
     </el-card>
 
-    <!-- 统计信息 -->
-    <el-row :gutter="20" class="stats-row">
-      <el-col :xs="8" :sm="6">
-        <div class="stat-item">
-          <div class="stat-value">{{ total }}</div>
-          <div class="stat-label">总图片数</div>
-        </div>
-      </el-col>
-      <el-col :xs="8" :sm="6">
-        <div class="stat-item">
-          <div class="stat-value">{{ selectedImages.length }}</div>
-          <div class="stat-label">已选择</div>
-        </div>
-      </el-col>
-      <el-col :xs="8" :sm="6">
-        <div class="stat-item">
-          <div class="stat-value">{{ formatFileSize(totalSize) }}</div>
-          <div class="stat-label">总大小</div>
-        </div>
-      </el-col>
-    </el-row>
-
     <!-- 批量操作 -->
     <div v-if="selectedImages.length > 0" class="batch-actions">
       <el-alert
@@ -424,29 +402,7 @@ onMounted(() => {
   margin-bottom: 20px;
 }
 
-.stats-row {
-  margin-bottom: 20px;
-}
 
-.stat-item {
-  text-align: center;
-  padding: 15px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.stat-value {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #3498db;
-}
-
-.stat-label {
-  color: #7f8c8d;
-  font-size: 0.9rem;
-  margin-top: 5px;
-}
 
 .batch-actions {
   margin-bottom: 20px;

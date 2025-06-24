@@ -37,7 +37,7 @@ class DatabaseConfig(BaseModel):
 
 class StorageConfig(BaseModel):
     """文件存储配置"""
-    upload_dir: str = "data/images"
+    upload_dir: str = "data\\images"
     max_file_size: int = 10485760  # 10MB
     allowed_extensions: List[str] = ["jpg", "jpeg", "png", "bmp", "webp"]
     thumbnail_size: List[int] = [256, 256]
@@ -45,7 +45,7 @@ class StorageConfig(BaseModel):
 
 class FaissConfig(BaseModel):
     """Faiss索引配置"""
-    index_path: str = "data/index/image_features.index"
+    index_path: str = "data\\index\\image_features.index"
     feature_dim: int = 2048
     index_type: str = "IndexFlatIP"
     nprobe: int = 10
@@ -101,7 +101,7 @@ class Settings(BaseModel):
     admin: AdminConfig = AdminConfig()
 
 
-def load_config_from_yaml(config_path: str = "D:\\codes\\Projects\\pic-search\\faiss-image-search-v3\\config\\config.yaml") -> dict:
+def load_config_from_yaml(config_path: str = "..\\config\\config.yaml") -> dict:
     """从YAML文件加载配置"""
     try:
         # 尝试相对路径和绝对路径

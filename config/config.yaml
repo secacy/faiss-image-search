@@ -1,23 +1,20 @@
-# 图与图寻系统配置文件
-# Pic Search System Configuration
+# 图与图寻 应用配置
 
 # 服务器配置
 server:
   host: "0.0.0.0"
   port: 8000
-  debug: true
+  debug: false
   cors_origins:
     - "http://localhost:3000"
-    - "http://localhost:3001"
     - "http://127.0.0.1:3000"
-    - "http://127.0.0.1:3001"
 
 # 数据库配置
 database:
-  host: "127.0.0.1"
+  host: "localhost"
   port: 3306
-  username: "root"
-  password: "1234"
+  username: "your_username"
+  password: "your_password"
   database: "pic_search"
   charset: "utf8mb4"
   pool_size: 10
@@ -25,7 +22,7 @@ database:
 
 # 文件存储配置
 storage:
-  upload_dir: "D:\\codes\\Projects\\pic-search\\faiss-image-search-v3\\backend\\data\\images"
+  upload_dir: "backend\\data\\images"
   max_file_size: 10485760  # 10MB
   allowed_extensions:
     - "jpg"
@@ -35,23 +32,23 @@ storage:
     - "webp"
   thumbnail_size: [256, 256]
 
-# Faiss索引配置
+# Faiss 索引配置
 faiss:
-  index_path: "D:\\codes\\Projects\\pic-search\\faiss-image-search-v3\\backend\\data\\index\\image_features.index"
-  feature_dim: 2048
-  index_type: "IndexFlatIP"  # 内积相似度索引
-  nprobe: 10
+  index_path: "backend\\data\\index\\image_features.index"
+  feature_dim: 2048  # ResNet50 特征维度
+  index_type: "IndexFlatIP"  # 内积索引
+  nprobe: 10  # 搜索时的探测数量
 
-# 深度学习模型配置
+# 模型配置
 model:
   name: "resnet50"
   pretrained: true
-  device: "cpu"  # 默认使用CPU，有GPU可改为cuda
+  device: "cuda"  # cuda/cpu
   batch_size: 32
 
-# 认证配置
+# JWT 认证配置
 auth:
-  secret_key: "pic-search-secret-key-change-in-production-2024"
+  secret_key: "your-secret-key-change-in-production"
   algorithm: "HS256"
   access_token_expire_minutes: 1440  # 24小时
 
@@ -59,7 +56,7 @@ auth:
 logging:
   level: "INFO"
   format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-  file: "logs/app.log"
+  file: "backend\\logs\\app.log"
   max_size: 10485760  # 10MB
   backup_count: 5
 

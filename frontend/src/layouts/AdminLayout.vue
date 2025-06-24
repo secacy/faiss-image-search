@@ -32,9 +32,9 @@
           :default-active="$route.path"
           class="admin-menu"
           router
-          background-color="#2c3e50"
-          text-color="#ecf0f1"
-          active-text-color="#3498db"
+          background-color="#f8f9fa"
+          text-color="#495057"
+          active-text-color="#007bff"
         >
           <el-menu-item index="/admin/dashboard">
             <el-icon><DataBoard /></el-icon>
@@ -103,19 +103,21 @@ const handleCommand = (command) => {
 
 .admin-header {
   height: 60px;
-  background: #34495e;
-  color: white;
+  background: #f5f6f7;
+  color: #495057;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid #e9ecef;
 }
 
 .admin-title {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
+  color: #343a40;
 }
 
 .user-info {
@@ -124,12 +126,13 @@ const handleCommand = (command) => {
   gap: 8px;
   cursor: pointer;
   padding: 8px 12px;
-  border-radius: 4px;
+  border-radius: 6px;
   transition: background-color 0.3s;
+  color: #495057;
 }
 
 .user-info:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .admin-container {
@@ -140,24 +143,39 @@ const handleCommand = (command) => {
 
 .admin-sidebar {
   width: 250px;
-  background: #2c3e50;
-  overflow-y: auto;
+  background: #f8f9fa;
+  overflow-y: hidden;
+  border-right: 1px solid #e9ecef;
+  flex-shrink: 0;
 }
 
 .admin-menu {
   border: none;
   height: 100%;
+  overflow: visible;
 }
 
-.admin-menu .el-menu-item,
-.admin-menu .el-sub-menu__title {
+.admin-menu :deep(.el-menu-item) {
   height: 50px;
   line-height: 50px;
+  border-radius: 8px;
+  margin: 4px 8px;
+  color: #495057;
+}
+
+.admin-menu :deep(.el-menu-item:hover) {
+  background-color: #e9ecef;
+  color: #007bff;
+}
+
+.admin-menu :deep(.el-menu-item.is-active) {
+  background-color: #e7f3ff;
+  color: #007bff;
 }
 
 .admin-main {
   flex: 1;
-  background: #f5f7fa;
+  background: #ffffff;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -165,8 +183,9 @@ const handleCommand = (command) => {
 
 .admin-content {
   flex: 1;
-  padding: 20px;
+  padding: 24px;
   overflow-y: auto;
+  background: #fafbfc;
 }
 
 /* 响应式设计 */
@@ -176,7 +195,7 @@ const handleCommand = (command) => {
   }
   
   .admin-content {
-    padding: 15px;
+    padding: 20px;
   }
 }
 
@@ -194,7 +213,7 @@ const handleCommand = (command) => {
   }
   
   .admin-content {
-    padding: 10px;
+    padding: 16px;
   }
 }
 </style> 

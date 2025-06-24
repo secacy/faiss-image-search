@@ -237,7 +237,11 @@ async def delete_image(
         image.is_active = False
         db.commit()
         
-        # TODO: 从Faiss索引中移除
+        # 从Faiss索引中移除图片特征
+        try:
+            faiss_service.remove_image(image_id)
+        except Exception as e:
+            logger.warning(f"从索引中移除图片失败: {e}")
         # await faiss_service.remove_vector(image_id)
         
         api_logger.info(f"图片删除成功: {image.filename}")

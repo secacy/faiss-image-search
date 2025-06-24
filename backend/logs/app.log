@@ -571,3 +571,77 @@
 2025-06-24 20:00:21 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
 2025-06-24 20:00:21 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
 2025-06-24 20:00:21 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 20:00:37 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 20:00:37 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 20:00:37 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 20:00:37 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 20:00:43 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:00:43 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:00:43 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 20:00:43 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 20:00:44 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 20:00:44 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 20:00:44 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 20:00:44 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 24, 下一个faiss_id: 24
+2025-06-24 20:01:09 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small202057cGqbK1743164457.jpg
+2025-06-24 20:01:10 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 20:01:10 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回10个结果，耗时0.117秒
+2025-06-24 20:01:18 | INFO     | app.api.endpoints.images:upload_image:112 - 开始提取图片特征: small202057cGqbK1743164457.jpg
+2025-06-24 20:01:19 | INFO     | app.api.endpoints.images:upload_image:139 - 图片上传成功: small202057cGqbK1743164457.jpg -> 14f25e01310b4f289c03f68bc66c5cd5.jpg
+2025-06-24 20:01:29 | INFO     | app.api.endpoints.images:delete_image:243 - 图片删除成功: d5bbbba281f8433c8ca2a59b6ebc4b6e.jpg
+2025-06-24 20:01:40 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small202057cGqbK1743164457.jpg
+2025-06-24 20:01:40 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 20:01:40 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回10个结果，耗时0.319秒
+2025-06-24 20:04:10 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: 3.jpg
+2025-06-24 20:04:11 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 20:04:11 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回10个结果，耗时0.617秒
+2025-06-24 20:06:21 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 20:06:22 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 20:06:22 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回9个结果，耗时0.295秒
+2025-06-24 20:06:40 | INFO     | app.api.endpoints.images:delete_image:243 - 图片删除成功: 79f3e8e3176a49a08fb4870579ec0d0c.jpg
+2025-06-24 20:06:51 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 20:06:51 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 20:06:51 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回8个结果，耗时0.278秒
+2025-06-24 20:07:08 | INFO     | app.api.endpoints.images:delete_image:243 - 图片删除成功: d09e11c356f24a2da5c0375027598d7e.jpg
+2025-06-24 20:07:13 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 20:07:13 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 20:07:13 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回7个结果，耗时0.281秒
+2025-06-24 20:14:11 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 20:14:11 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 20:14:11 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回7个结果，耗时0.078秒
+2025-06-24 20:18:23 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 20:18:23 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 20:18:23 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 20:18:23 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 20:18:28 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:18:28 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:18:48 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:21:55 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:22:52 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:22:52 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:23:18 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:23:18 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:23:35 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:23:35 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:23:35 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 20:23:35 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 20:23:35 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 20:23:35 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 20:23:35 | INFO     | app.services.faiss_service:_load_or_create_index:77 - 创建新索引: IndexFlatIP
+2025-06-24 20:23:35 | INFO     | app.services.faiss_service:_rebuild_mapping_from_db:125 - 从数据库重建映射完成，下一个可用faiss_id: 25
+2025-06-24 20:23:35 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 0, 下一个faiss_id: 25
+2025-06-24 20:23:35 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 20:23:35 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 20:23:35 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 20:23:35 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 20:24:27 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:24:27 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:24:27 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 20:24:27 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 20:24:27 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 20:24:27 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 20:24:27 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: backend\data\index\image_features.index
+2025-06-24 20:24:27 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 0, 下一个faiss_id: 25
+2025-06-24 20:35:01 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 20:35:01 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 20:35:01 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.327秒
