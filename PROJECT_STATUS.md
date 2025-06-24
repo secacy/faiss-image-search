@@ -54,8 +54,7 @@ python scripts/start.py --mode development
 #### 方法2: 手动启动
 ```bash
 # 启动后端
-cd backend
-python main.py
+python backend/main.py
 
 # 启动前端 (新终端)
 cd frontend
