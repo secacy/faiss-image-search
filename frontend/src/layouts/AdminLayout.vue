@@ -41,20 +41,15 @@
             <span>仪表板</span>
           </el-menu-item>
           
-          <el-sub-menu index="images">
-            <template #title>
-              <el-icon><Picture /></el-icon>
-              <span>图片管理</span>
-            </template>
-            <el-menu-item index="/admin/images">
-              <el-icon><List /></el-icon>
-              图片列表
-            </el-menu-item>
-            <el-menu-item index="/admin/upload">
-              <el-icon><Upload /></el-icon>
-              上传图片
-            </el-menu-item>
-          </el-sub-menu>
+          <el-menu-item index="/admin/images">
+            <el-icon><List /></el-icon>
+            <span>图片列表</span>
+          </el-menu-item>
+          
+          <el-menu-item index="/admin/upload">
+            <el-icon><Upload /></el-icon>
+            <span>上传图片</span>
+          </el-menu-item>
 
           <el-menu-item index="/admin/logs">
             <el-icon><Document /></el-icon>
@@ -80,8 +75,8 @@
 
 <script setup>
 import { 
-  User, ArrowDown, SwitchButton, DataBoard, Picture, 
-  List, Upload, Search, Setting, Tools, Document, HomeFilled 
+  User, ArrowDown, SwitchButton, DataBoard, 
+  List, Upload, Document, HomeFilled 
 } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'

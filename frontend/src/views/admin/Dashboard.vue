@@ -7,14 +7,6 @@
           <h1>欢迎回来，{{ userStore.user?.username || 'Admin' }}！</h1>
           <p>系统运行状态良好，今天是 {{ getCurrentDate() }}</p>
         </el-col>
-        <el-col :xs="24" :md="8" class="banner-actions">
-          <el-button type="primary" :icon="Refresh" @click="refreshData">
-            刷新数据
-          </el-button>
-          <el-button type="success" :icon="Upload" @click="goToUpload">
-            上传图片
-          </el-button>
-        </el-col>
       </el-row>
     </div>
 
@@ -99,7 +91,7 @@
 import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { 
-  Picture, Search, User, DataBoard, Refresh
+  Picture, Search, User, DataBoard
 } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { useAuthStore } from '@/stores/auth'
@@ -168,11 +160,6 @@ const handleImageError = (event) => {
 
 
 
-// 刷新数据
-const refreshData = async () => {
-  await loadDashboardData()
-  ElMessage.success('数据已刷新')
-}
 
 // 加载仪表板数据
 const loadDashboardData = async () => {
@@ -223,12 +210,6 @@ onMounted(() => {
   opacity: 0.9;
 }
 
-.banner-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-end;
-}
 
 .stats-row {
   margin-bottom: 30px;
@@ -354,10 +335,7 @@ onMounted(() => {
     font-size: 1.6rem;
   }
   
-  .banner-actions {
-    justify-content: flex-start;
-    margin-top: 15px;
-  }
+
   
   .stat-card {
     padding: 15px;
