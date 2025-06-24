@@ -645,3 +645,31 @@
 2025-06-24 20:35:01 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
 2025-06-24 20:35:01 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
 2025-06-24 20:35:01 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.327秒
+2025-06-24 21:45:21 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small202057cGqbK1743164457.jpg
+2025-06-24 21:45:21 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 21:45:21 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.453秒
+2025-06-24 22:08:06 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 22:08:06 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 22:08:06 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.300秒
+2025-06-24 22:08:17 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 22:08:17 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 22:08:17 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.367秒
+2025-06-24 22:08:23 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small202057cGqbK1743164457.jpg
+2025-06-24 22:08:23 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 22:08:23 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.217秒
+2025-06-24 22:09:26 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 22:09:27 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 22:09:27 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.121秒
+2025-06-24 22:09:33 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small202057cGqbK1743164457.jpg
+2025-06-24 22:09:33 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 22:09:33 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.230秒
+2025-06-24 22:15:01 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 22:15:01 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 22:15:01 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.219秒
+2025-06-24 22:19:03 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 22:19:03 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 22:19:03 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回0个结果，耗时0.213秒
+2025-06-24 22:19:03 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 22:19:03 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 22:19:03 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 22:19:04 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
