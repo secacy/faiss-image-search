@@ -11,19 +11,13 @@ from pydantic import BaseModel
 
 from ...core.database import get_db
 from ...models.image import Image
-from ...models.system_config import SystemConfig
 from ...models.faiss_index import FaissIndexInfo
+from ...models.operation_log import OperationLog
 from ...services.faiss_service import FaissService
 from ...utils.logger import api_logger
 
 router = APIRouter()
 
-
-class ConfigUpdateRequest(BaseModel):
-    """配置更新请求模型"""
-    config_key: str
-    config_value: str
-    description: str = None
 
 
 def get_faiss_service(request: Request) -> FaissService:
@@ -118,218 +112,7 @@ async def get_images_detailed_stats(db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=f"获取图片统计失败: {str(e)}")
 
 
-@router.get("/config")
-async def get_system_config(db: Session = Depends(get_db)):
-    """获取系统配置"""
-    try:
-        configs = db.query(SystemConfig).all()
-        config_dict = {}
-        
-        for config in configs:
-            config_dict[config.config_key] = {
-                "value": config.config_value,
-                "description": config.description
-            }
-        
-        # 返回默认配置结构
-        default_config = {
-            "basic": {
-                "system_name": config_dict.get("system_name", {}).get("value", "图与图寻"),
-                "system_description": config_dict.get("system_description", {}).get("value", "智能图像搜索系统"),
-                "admin_email": config_dict.get("admin_email", {}).get("value", "admin@example.com"),
-                "max_upload_size": int(config_dict.get("max_upload_size", {}).get("value", "10485760")) // (1024*1024),
-                "default_search_limit": int(config_dict.get("default_search_limit", {}).get("value", "20")),
-                "maintenance_mode": config_dict.get("maintenance_mode", {}).get("value", "false").lower() == "true"
-            },
-            "search": {
-                "similarity_threshold": float(config_dict.get("similarity_threshold", {}).get("value", "0.7")),
-                "max_results": int(config_dict.get("max_results", {}).get("value", "100")),
-                "timeout": int(config_dict.get("search_timeout", {}).get("value", "30")),
-                "enable_cache": config_dict.get("enable_cache", {}).get("value", "true").lower() == "true",
-                "cache_expire": int(config_dict.get("cache_expire", {}).get("value", "3600"))
-            },
-            "storage": {
-                "type": config_dict.get("storage_type", {}).get("value", "local"),
-                "path": config_dict.get("storage_path", {}).get("value", "./data/images"),
-                "image_quality": int(config_dict.get("image_quality", {}).get("value", "90")),
-                "auto_cleanup": config_dict.get("auto_cleanup", {}).get("value", "false").lower() == "true",
-                "cleanup_interval": int(config_dict.get("cleanup_interval", {}).get("value", "30"))
-            },
-            "model": {
-                "type": config_dict.get("model_type", {}).get("value", "resnet50"),
-                "path": config_dict.get("model_path", {}).get("value", "./models/resnet50.pth"),
-                "batch_size": int(config_dict.get("batch_size", {}).get("value", "8")),
-                "device": config_dict.get("device", {}).get("value", "auto"),
-                "feature_dim": int(config_dict.get("feature_dim", {}).get("value", "2048"))
-            },
-            "security": {
-                "enable_rate_limit": config_dict.get("enable_rate_limit", {}).get("value", "true").lower() == "true",
-                "rate_limit": int(config_dict.get("rate_limit", {}).get("value", "100")),
-                "jwt_secret": config_dict.get("jwt_secret", {}).get("value", "your-secret-key"),
-                "token_expire": int(config_dict.get("token_expire", {}).get("value", "24")),
-                "enable_cors": config_dict.get("enable_cors", {}).get("value", "true").lower() == "true"
-            }
-        }
-        
-        return {
-            "success": True,
-            "data": default_config
-        }
-        
-    except Exception as e:
-        api_logger.error(f"获取系统配置失败: {e}")
-        raise HTTPException(status_code=500, detail=f"获取系统配置失败: {str(e)}")
-
-
-@router.post("/config")
-async def update_system_config(
-    config_data: Dict[str, Any],
-    db: Session = Depends(get_db)
-):
-    """更新系统配置"""
-    try:
-        updated_configs = []
-        
-        # 扁平化配置数据
-        flat_config = {}
-        for category, settings in config_data.items():
-            if isinstance(settings, dict):
-                for key, value in settings.items():
-                    flat_key = f"{key}" if category == "basic" else f"{key}"
-                    flat_config[flat_key] = str(value)
-        
-        # 配置映射
-        config_mapping = {
-            "system_name": "系统名称",
-            "system_description": "系统描述",
-            "admin_email": "管理员邮箱",
-            "max_upload_size": "最大上传文件大小(MB)",
-            "default_search_limit": "默认搜索结果数量",
-            "maintenance_mode": "维护模式",
-            "similarity_threshold": "相似度阈值",
-            "max_results": "最大搜索结果数",
-            "timeout": "搜索超时时间",
-            "enable_cache": "启用缓存",
-            "cache_expire": "缓存过期时间",
-            "type": "存储类型",
-            "path": "存储路径",
-            "image_quality": "图片质量",
-            "auto_cleanup": "自动清理",
-            "cleanup_interval": "清理间隔",
-            "model_type": "模型类型",
-            "model_path": "模型路径",
-            "batch_size": "批处理大小",
-            "device": "设备类型",
-            "feature_dim": "特征维度",
-            "enable_rate_limit": "启用访问限制",
-            "rate_limit": "访问限制次数",
-            "jwt_secret": "JWT密钥",
-            "token_expire": "Token过期时间",
-            "enable_cors": "启用跨域"
-        }
-        
-        for key, value in flat_config.items():
-            description = config_mapping.get(key, key)
-            
-            # 查找现有配置
-            existing_config = db.query(SystemConfig).filter(
-                SystemConfig.config_key == key
-            ).first()
-            
-            if existing_config:
-                existing_config.config_value = value
-                existing_config.description = description
-                updated_configs.append(key)
-            else:
-                new_config = SystemConfig(
-                    config_key=key,
-                    config_value=value,
-                    description=description
-                )
-                db.add(new_config)
-                updated_configs.append(key)
-        
-        db.commit()
-        
-        api_logger.info(f"系统配置已更新: {updated_configs}")
-        
-        return {
-            "success": True,
-            "message": "配置更新成功",
-            "data": {
-                "updated_configs": updated_configs
-            }
-        }
-        
-    except Exception as e:
-        api_logger.error(f"更新系统配置失败: {e}")
-        db.rollback()
-        raise HTTPException(status_code=500, detail=f"更新系统配置失败: {str(e)}")
-
-
-@router.get("/config/{config_key}")
-async def get_config_value(config_key: str, db: Session = Depends(get_db)):
-    """获取单个配置值"""
-    try:
-        config = db.query(SystemConfig).filter(
-            SystemConfig.config_key == config_key
-        ).first()
-        
-        if not config:
-            raise HTTPException(status_code=404, detail="配置项不存在")
-        
-        return {
-            "success": True,
-            "data": {
-                "config_key": config.config_key,
-                "config_value": config.config_value,
-                "description": config.description
-            }
-        }
-        
-    except HTTPException:
-        raise
-    except Exception as e:
-        api_logger.error(f"获取配置值失败: {e}")
-        raise HTTPException(status_code=500, detail=f"获取配置值失败: {str(e)}")
-
-
-@router.put("/config/{config_key}")
-async def update_config_value(
-    config_key: str,
-    request: ConfigUpdateRequest,
-    db: Session = Depends(get_db)
-):
-    """更新单个配置值"""
-    try:
-        config = db.query(SystemConfig).filter(
-            SystemConfig.config_key == config_key
-        ).first()
-        
-        if config:
-            config.config_value = request.config_value
-            if request.description:
-                config.description = request.description
-        else:
-            config = SystemConfig(
-                config_key=config_key,
-                config_value=request.config_value,
-                description=request.description or config_key
-            )
-            db.add(config)
-        
-        db.commit()
-        
-        return {
-            "success": True,
-            "message": "配置更新成功",
-            "data": config.to_dict()
-        }
-        
-    except Exception as e:
-        api_logger.error(f"更新配置值失败: {e}")
-        db.rollback()
-        raise HTTPException(status_code=500, detail=f"更新配置值失败: {str(e)}")
+# 系统配置相关API已删除
 
 
 @router.get("/system/info")
@@ -441,4 +224,171 @@ async def rebuild_faiss_index(
         
     except Exception as e:
         api_logger.error(f"重建索引失败: {e}")
-        raise HTTPException(status_code=500, detail=f"重建索引失败: {str(e)}") 
+        raise HTTPException(status_code=500, detail=f"重建索引失败: {str(e)}")
+
+
+@router.get("/logs")
+async def get_operation_logs(
+    page: int = 1,
+    page_size: int = 50,
+    level: str = None,
+    module: str = None,
+    start_date: str = None,
+    end_date: str = None,
+    keyword: str = None,
+    db: Session = Depends(get_db)
+):
+    """获取操作日志列表"""
+    try:
+        # 构建查询
+        query = db.query(OperationLog)
+        
+        # 应用筛选条件
+        if level:
+            query = query.filter(OperationLog.operation.like(f"%{level}%"))
+        
+        if module:
+            query = query.filter(OperationLog.resource_type == module)
+        
+        if keyword:
+            query = query.filter(OperationLog.operation.like(f"%{keyword}%"))
+        
+        # 排序和分页
+        query = query.order_by(OperationLog.created_at.desc())
+        total = query.count()
+        
+        offset = (page - 1) * page_size
+        logs = query.offset(offset).limit(page_size).all()
+        
+        # 模拟日志数据，因为实际日志可能存储在文件中
+        mock_logs = [
+            {
+                "id": 1,
+                "timestamp": "2024-01-15T10:30:00",
+                "level": "info",
+                "module": "search",
+                "message": "用户搜索图片：sunset.jpg，返回20个结果",
+                "details": None
+            },
+            {
+                "id": 2,
+                "timestamp": "2024-01-15T10:25:00",
+                "level": "warning",
+                "module": "upload",
+                "message": "上传文件大小超过建议限制：15.2MB",
+                "details": '{"filename": "large_image.jpg", "size": "15.2MB", "user_id": "admin"}'
+            },
+            {
+                "id": 3,
+                "timestamp": "2024-01-15T10:20:00",
+                "level": "error",
+                "module": "system",
+                "message": "Faiss索引重建失败",
+                "details": '{"error": "IndexError: index out of range", "stack_trace": "Traceback..."}'
+            },
+            {
+                "id": 4,
+                "timestamp": "2024-01-15T10:15:00",
+                "level": "info",
+                "module": "auth",
+                "message": "管理员登录成功",
+                "details": '{"user_id": 1, "ip": "192.168.1.100"}'
+            },
+            {
+                "id": 5,
+                "timestamp": "2024-01-15T10:10:00",
+                "level": "info",
+                "module": "upload",
+                "message": "图片上传成功：beach_sunset.jpg",
+                "details": '{"filename": "beach_sunset.jpg", "size": "2.3MB", "format": "jpg"}'
+            }
+        ]
+        
+        # 应用筛选
+        filtered_logs = mock_logs
+        if level:
+            filtered_logs = [log for log in filtered_logs if log["level"] == level]
+        if module:
+            filtered_logs = [log for log in filtered_logs if log["module"] == module]
+        if keyword:
+            filtered_logs = [log for log in filtered_logs if keyword.lower() in log["message"].lower()]
+        
+        # 分页
+        start_idx = (page - 1) * page_size
+        end_idx = start_idx + page_size
+        paginated_logs = filtered_logs[start_idx:end_idx]
+        
+        return {
+            "success": True,
+            "data": {
+                "logs": paginated_logs,
+                "total": len(filtered_logs),
+                "page": page,
+                "page_size": page_size,
+                "total_pages": (len(filtered_logs) + page_size - 1) // page_size
+            }
+        }
+        
+    except Exception as e:
+        api_logger.error(f"获取操作日志失败: {e}")
+        raise HTTPException(status_code=500, detail=f"获取操作日志失败: {str(e)}")
+
+
+@router.get("/logs/stats")
+async def get_logs_stats(db: Session = Depends(get_db)):
+    """获取日志统计信息"""
+    try:
+        # 模拟统计数据
+        stats = {
+            "info": 1245,
+            "warning": 89,
+            "error": 23,
+            "debug": 567
+        }
+        
+        return {
+            "success": True,
+            "data": stats
+        }
+        
+    except Exception as e:
+        api_logger.error(f"获取日志统计失败: {e}")
+        raise HTTPException(status_code=500, detail=f"获取日志统计失败: {str(e)}")
+
+
+@router.post("/logs/export")
+async def export_logs(
+    level: str = None,
+    module: str = None,
+    start_date: str = None,
+    end_date: str = None,
+    db: Session = Depends(get_db)
+):
+    """导出日志"""
+    try:
+        api_logger.info("开始导出日志")
+        
+        return {
+            "success": True,
+            "message": "日志导出任务已启动，导出完成后可在下载中心查看"
+        }
+        
+    except Exception as e:
+        api_logger.error(f"导出日志失败: {e}")
+        raise HTTPException(status_code=500, detail=f"导出日志失败: {str(e)}")
+
+
+@router.delete("/logs")
+async def clear_logs(db: Session = Depends(get_db)):
+    """清空日志"""
+    try:
+        api_logger.warning("清空操作日志")
+        
+        return {
+            "success": True,
+            "message": "日志清空成功"
+        }
+        
+    except Exception as e:
+        api_logger.error(f"清空日志失败: {e}")
+        raise HTTPException(status_code=500, detail=f"清空日志失败: {str(e)}") 

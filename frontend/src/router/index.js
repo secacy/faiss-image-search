@@ -87,14 +87,6 @@ const routes = [
         },
       },
       {
-        path: "config",
-        name: "AdminConfig",
-        component: () => import("@/views/admin/SystemConfig.vue"),
-        meta: {
-          title: "系统配置 - 图与图寻",
-        },
-      },
-      {
         path: "logs",
         name: "AdminLogs",
         component: () => import("@/views/admin/SystemLogs.vue"),

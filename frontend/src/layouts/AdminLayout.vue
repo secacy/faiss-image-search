@@ -56,22 +56,10 @@
             </el-menu-item>
           </el-sub-menu>
 
-
-
-          <el-sub-menu index="system">
-            <template #title>
-              <el-icon><Setting /></el-icon>
-              <span>系统管理</span>
-            </template>
-            <el-menu-item index="/admin/config">
-              <el-icon><Tools /></el-icon>
-              系统配置
-            </el-menu-item>
-            <el-menu-item index="/admin/logs">
-              <el-icon><Document /></el-icon>
-              操作日志
-            </el-menu-item>
-          </el-sub-menu>
+          <el-menu-item index="/admin/logs">
+            <el-icon><Document /></el-icon>
+            <span>操作日志</span>
+          </el-menu-item>
 
           <el-menu-item index="/">
             <el-icon><HomeFilled /></el-icon>
