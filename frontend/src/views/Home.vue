@@ -87,13 +87,11 @@
         <div class="mascot-section">
           <div class="mascot-area">
             <div class="mascot-character">
-              <el-icon><Picture /></el-icon>
+              <img src="/kanban/2.png" alt="看板娘" class="mascot-image" />
             </div>
             <div class="mascot-text">
-              <p>🌟 欢迎使用图与图寻！</p>
-              <p>我将为您寻找相似图像</p>
-              <p>数据库中最相似的图像</p>
-              <p>带您探索视觉世界的奇妙~ ✨</p>
+              <p>欢迎来到图与图寻！</p>
+              <p>我可以帮你找图哟！</p>
             </div>
           </div>
         </div>
@@ -423,6 +421,62 @@ onMounted(() => {
 .mascot-section {
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mascot-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.mascot-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  padding: 20px;
+}
+
+.mascot-character {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 4px solid #fff;
+}
+
+.mascot-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.mascot-text {
+  text-align: center;
+  color: var(--text-primary);
+  margin-top: 20px;
+}
+
+.mascot-text p {
+  margin: 8px 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  background: linear-gradient(45deg, #2196f3, #1565c0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Element Plus 输入框圆角样式覆盖 */
