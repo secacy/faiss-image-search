@@ -56,13 +56,13 @@ auth:
 logging:
   level: "INFO"
   format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-  file: "backend\\logs\\app.log"
+  file: "logs\\app.log"
   max_size: 10485760  # 10MB
   backup_count: 5
 
 # 搜索配置
 search:
-  default_k: 10
+  default_k: 12
   max_k: 100
   similarity_threshold: 0.5
 

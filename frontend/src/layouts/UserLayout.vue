@@ -3,7 +3,7 @@
     <el-header class="header">
       <div class="header-content">
         <div class="logo">
-          <el-icon class="logo-icon"><Camera /></el-icon>
+          <el-icon class="logo-icon"><Search /></el-icon>
           <span class="logo-text">图与图寻</span>
         </div>
         <el-menu
@@ -12,10 +12,6 @@
           mode="horizontal"
           router
         >
-          <el-menu-item index="/">
-            <el-icon><Search /></el-icon>
-            <span>图片搜索</span>
-          </el-menu-item>
         </el-menu>
         <div class="header-actions">
           <el-button text @click="goToAdmin" class="admin-btn">

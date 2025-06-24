@@ -1,0 +1,9 @@
+2025-06-24 23:10:57 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 23:10:57 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 23:10:57 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 23:10:57 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 23:10:57 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 23:10:57 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 23:10:57 | INFO     | app.services.faiss_service:_load_or_create_index:77 - 创建新索引: IndexFlatIP
+2025-06-24 23:10:57 | INFO     | app.services.faiss_service:_rebuild_mapping_from_db:125 - 从数据库重建映射完成，下一个可用faiss_id: 19
+2025-06-24 23:10:57 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 0, 下一个faiss_id: 19

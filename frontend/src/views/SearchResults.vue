@@ -89,15 +89,6 @@
               <div class="image-overlay">
                 <div class="image-actions">
                   <el-button
-                    type="primary"
-                    size="small"
-                    @click.stop="searchSimilar(result.image)"
-                    class="action-btn"
-                  >
-                    <el-icon><Search /></el-icon>
-                    再次搜索
-                  </el-button>
-                  <el-button
                     type="info"
                     size="small"
                     @click.stop="downloadImage(result.image)"
@@ -172,9 +163,6 @@
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="showImageDetail = false">关闭</el-button>
-          <el-button type="primary" @click="searchSimilar(currentImage)" class="btn-primary">
-            相似搜索
-          </el-button>
           <el-button type="success" @click="downloadImage(currentImage)" class="btn-accent">
             下载图片
           </el-button>
@@ -356,19 +344,6 @@ const openImageDetail = (image) => {
   showImageDetail.value = true
 }
 
-// 相似搜索
-const searchSimilar = (image) => {
-  router.push({
-    name: 'SearchResults',
-    query: {
-      type: 'image_id',
-      image_id: image.id,
-      filename: image.filename,
-      top_k: topK.value,
-      threshold: threshold.value
-    }
-  })
-}
 
 // 下载图片
 const downloadImage = (image) => {
