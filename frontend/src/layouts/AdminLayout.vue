@@ -161,6 +161,18 @@ const handleCommand = (command) => {
   border-radius: 8px;
   margin: 4px 8px;
   color: #495057;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.admin-menu :deep(.el-menu-item .el-icon) {
+  margin-right: 8px;
+}
+
+.admin-menu :deep(.el-menu-item span) {
+  font-weight: 500;
 }
 
 .admin-menu :deep(.el-menu-item:hover) {

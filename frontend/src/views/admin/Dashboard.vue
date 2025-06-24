@@ -88,27 +88,27 @@ onMounted(() => {
 }
 
 .welcome-banner {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  color: #475569;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  color: #1565c0;
   padding: 32px;
   border-radius: 16px;
   margin-bottom: 32px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e3f2fd;
 }
 
 .welcome-banner h1 {
   font-size: 2rem;
   margin: 0 0 12px 0;
   font-weight: 600;
-  color: #334155;
+  color: #0d47a1;
 }
 
 .welcome-banner p {
   font-size: 1.1rem;
   margin: 0;
   opacity: 0.8;
-  color: #64748b;
+  color: #1976d2;
 }
 
 .system-row {
