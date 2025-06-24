@@ -110,7 +110,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElLoading } from 'element-plus'
 import { UploadFilled, Search, Link, Picture } from '@element-plus/icons-vue'
-import { searchApi } from '@/api/search'
+import { searchApi, searchByUrl } from '@/api/search'
 
 const router = useRouter()
 
@@ -201,7 +201,26 @@ const performSearch = async () => {
     }
   } catch (error) {
     console.error('搜索错误：', error)
-    ElMessage.error('搜索失败：' + (error.message || '网络错误'))
+    
+    // 根据错误类型提供不同的提示
+    let errorMessage = '搜索失败'
+    if (error.response) {
+      // 后端返回的错误
+      const status = error.response.status
+      const detail = error.response.data?.detail || error.response.data?.message || '未知错误'
+      
+      if (status === 400) {
+        errorMessage = `请求错误: ${detail}`
+      } else if (status === 500) {
+        errorMessage = `服务器错误: ${detail}`
+      } else {
+        errorMessage = `HTTP ${status}: ${detail}`
+      }
+    } else if (error.message) {
+      errorMessage = `网络错误: ${error.message}`
+    }
+    
+    ElMessage.error(errorMessage)
   } finally {
     searching.value = false
   }

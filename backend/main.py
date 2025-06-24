@@ -4,6 +4,10 @@
 基于FastAPI的以图搜图Web服务
 """
 
+import os
+# 解决OpenMP库冲突问题
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

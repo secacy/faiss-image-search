@@ -439,3 +439,135 @@
 2025-06-24 19:18:33 | INFO     | app.api.endpoints.images:delete_image:243 - 图片删除成功: b8636bf5f07e41ec83a545bde9e112c7.jpg
 2025-06-24 19:19:15 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: ce9860830dd40bd8c309f8c76135618d.jpg
 2025-06-24 19:19:15 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 19:22:39 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:22:42 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:22:43 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:22:43 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 19:22:43 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 19:22:43 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 19:22:43 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 19:22:43 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 19:22:43 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 24, 下一个faiss_id: 24
+2025-06-24 19:25:19 | INFO     | app.api.endpoints.search:search_by_url:147 - 开始下载图片: https://picsum.photos/200/300
+2025-06-24 19:25:19 | ERROR    | app.api.endpoints.search:search_by_url:223 - URL搜索失败: 
+2025-06-24 19:25:46 | INFO     | app.api.endpoints.search:search_by_url:147 - 开始下载图片: https://picsum.photos/200/300
+2025-06-24 19:25:46 | ERROR    | app.api.endpoints.search:search_by_url:223 - URL搜索失败: 
+2025-06-24 19:26:37 | INFO     | app.api.endpoints.search:search_by_url:147 - 开始下载图片: https://picsum.photos/200/300
+2025-06-24 19:26:37 | ERROR    | app.api.endpoints.search:search_by_url:223 - URL搜索失败: 
+2025-06-24 19:27:14 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: 023336c8e23e479ab6d9b39fc3cb7339.jpg
+2025-06-24 19:27:14 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=5
+2025-06-24 19:44:07 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:44:07 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:44:07 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 19:44:07 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 19:44:08 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 19:44:08 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 19:44:08 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 19:44:08 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 24, 下一个faiss_id: 24
+2025-06-24 19:44:39 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:45:09 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:45:39 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:46:09 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:46:39 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:47:09 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:47:39 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:48:09 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:48:39 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:49:09 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:49:39 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:50:09 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:50:39 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:51:09 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:51:39 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:52:09 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:52:39 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:53:09 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:53:39 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:54:09 | ERROR    | app.api.endpoints.images:list_images:190 - 获取图片列表失败: QueuePool limit of size 10 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
+2025-06-24 19:54:09 | INFO     | app.api.endpoints.search:search_by_url:147 - 开始下载图片: https://httpbin.org/image/jpeg
+2025-06-24 19:54:09 | ERROR    | app.api.endpoints.search:search_by_url:160 - 网络连接失败: 
+2025-06-24 19:54:09 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 19:54:09 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 19:54:09 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 19:54:09 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 19:54:15 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:54:15 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:54:15 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 19:54:15 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 19:54:16 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 19:54:16 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 19:54:16 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 19:54:16 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 24, 下一个faiss_id: 24
+2025-06-24 19:54:52 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 19:54:52 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 19:57:23 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:57:27 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:57:27 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:57:27 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 19:57:27 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 19:57:28 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 19:57:28 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 19:57:28 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 19:57:28 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 24, 下一个faiss_id: 24
+2025-06-24 19:57:39 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 19:57:39 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 19:58:59 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:59:04 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:59:04 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:59:04 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 19:59:04 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 19:59:04 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 19:59:04 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 19:59:04 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 19:59:04 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 24, 下一个faiss_id: 24
+2025-06-24 19:59:09 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:59:09 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:59:09 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 19:59:09 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 19:59:10 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 19:59:10 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 19:59:10 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 19:59:10 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 24, 下一个faiss_id: 24
+2025-06-24 19:59:10 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:59:10 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:59:10 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 19:59:10 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 19:59:11 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 19:59:11 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 19:59:11 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 19:59:11 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 24, 下一个faiss_id: 24
+2025-06-24 19:59:34 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 19:59:34 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 19:59:34 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 19:59:34 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 19:59:40 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:59:40 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 19:59:40 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 19:59:40 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 19:59:40 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 19:59:40 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 19:59:40 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 19:59:40 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 24, 下一个faiss_id: 24
+2025-06-24 19:59:40 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: 023336c8e23e479ab6d9b39fc3cb7339.jpg
+2025-06-24 19:59:41 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=5
+2025-06-24 19:59:41 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回4个结果，耗时0.283秒
+2025-06-24 19:59:45 | INFO     | app.api.endpoints.search:search_by_upload:64 - 开始提取查询图片特征: small083211ufsXJ1743985931.jpg
+2025-06-24 19:59:45 | INFO     | app.api.endpoints.search:search_by_upload:68 - 开始搜索相似图片，K=10
+2025-06-24 19:59:45 | INFO     | app.api.endpoints.search:search_by_upload:105 - 搜索完成，返回9个结果，耗时0.087秒
+2025-06-24 19:59:49 | ERROR    | app.api.endpoints.images:get_images_stats:328 - 获取图片统计失败: 'Session' object has no attribute 'func'
+2025-06-24 20:00:13 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 20:00:13 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 20:00:13 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 20:00:13 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成
+2025-06-24 20:00:19 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:00:19 | INFO     | app.utils.logger:setup_logging:53 - 日志系统初始化完成
+2025-06-24 20:00:19 | INFO     | app.services.model_service:initialize:36 - 正在初始化图像特征提取模型...
+2025-06-24 20:00:19 | INFO     | app.services.model_service:initialize:43 - 使用设备: cpu
+2025-06-24 20:00:19 | INFO     | app.services.model_service:initialize:50 - 图像特征提取模型初始化完成
+2025-06-24 20:00:19 | INFO     | app.services.faiss_service:initialize:39 - 正在初始化Faiss索引服务...
+2025-06-24 20:00:19 | INFO     | app.services.faiss_service:_load_or_create_index:61 - 加载现有索引: D:\codes\Projects\pic-search\faiss-image-search-v3\backend\data\index\image_features.index
+2025-06-24 20:00:19 | INFO     | app.services.faiss_service:initialize:51 - Faiss索引初始化完成，当前向量数量: 24, 下一个faiss_id: 24
+2025-06-24 20:00:21 | INFO     | app.services.model_service:cleanup:220 - 正在清理模型服务资源...
+2025-06-24 20:00:21 | INFO     | app.services.model_service:cleanup:228 - 模型服务资源清理完成
+2025-06-24 20:00:21 | INFO     | app.services.faiss_service:cleanup:274 - 正在清理Faiss服务资源...
+2025-06-24 20:00:21 | INFO     | app.services.faiss_service:cleanup:284 - Faiss服务资源清理完成

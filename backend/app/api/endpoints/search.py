@@ -145,16 +145,26 @@ async def search_by_url(
         
         # 下载图片
         api_logger.info(f"开始下载图片: {image_url}")
-        async with httpx.AsyncClient(timeout=30) as client:
-            response = await client.get(image_url)
-            if response.status_code != 200:
-                raise HTTPException(status_code=400, detail="无法下载图片")
-            
-            content_type = response.headers.get('content-type', '')
-            if not content_type.startswith('image/'):
-                raise HTTPException(status_code=400, detail="URL必须指向图片文件")
-            
-            image_content = response.content
+        try:
+            async with httpx.AsyncClient(timeout=30) as client:
+                response = await client.get(image_url)
+                if response.status_code != 200:
+                    raise HTTPException(status_code=400, detail=f"无法下载图片，状态码: {response.status_code}")
+                
+                content_type = response.headers.get('content-type', '')
+                if not content_type.startswith('image/'):
+                    raise HTTPException(status_code=400, detail="URL必须指向图片文件")
+                
+                image_content = response.content
+        except httpx.ConnectError as e:
+            api_logger.error(f"网络连接失败: {e}")
+            raise HTTPException(status_code=400, detail="网络连接失败，请检查URL或网络设置")
+        except httpx.TimeoutException as e:
+            api_logger.error(f"请求超时: {e}")
+            raise HTTPException(status_code=400, detail="请求超时，请稍后重试")
+        except Exception as e:
+            api_logger.error(f"下载图片失败: {e}")
+            raise HTTPException(status_code=400, detail=f"下载图片失败: {str(e)}")
         
         # 提取特征
         api_logger.info("开始提取查询图片特征")

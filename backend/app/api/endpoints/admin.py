@@ -112,8 +112,6 @@ async def get_images_detailed_stats(db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=f"获取图片统计失败: {str(e)}")
 
 
-# 系统配置相关API已删除
-
 
 @router.get("/system/info")
 async def get_system_info(

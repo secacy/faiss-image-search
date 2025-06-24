@@ -303,13 +303,14 @@ async def get_images_stats(db: Session = Depends(get_db)):
         total_images = db.query(Image).filter(Image.is_active == True).count()
         
         # 总文件大小
-        total_size_result = db.query(db.func.sum(Image.file_size)).filter(Image.is_active == True).scalar()
+        from sqlalchemy import func
+        total_size_result = db.query(func.sum(Image.file_size)).filter(Image.is_active == True).scalar()
         total_size = total_size_result or 0
         
         # 按格式统计
         format_stats = db.query(
             Image.format,
-            db.func.count(Image.id).label('count')
+            func.count(Image.id).label('count')
         ).filter(Image.is_active == True).group_by(Image.format).all()
         
         format_dict = {stat.format: stat.count for stat in format_stats}
