@@ -1,46 +1,51 @@
-# 图与图寻 (Pic Search)
+<h1 align="center">图与图寻</h1>
 
-基于 Faiss 的以图搜图工具，支持图像数据集管理和高效的相似图像检索。
+<p align="center">
+<img src="demo/user1.png" width="730">
+</p>
 
-## 功能特性
+<p align="center"><b>基于 Faiss 的以图搜图系统，支持相似图像检索和图像数据集管理</b></p>
 
-### 🖼️ 图像数据集导入和管理
-- 支持单张/批量图片上传
-- 数据库图片浏览与分页展示
-- 图片删除功能
+## 项目简介
+本项目是一个基于深度学习与 Faiss 构建的图像检索系统，允许您通过浏览器轻松地管理自己的图像数据集，并进行检索。
+系统利用了 PyTorch 加载预训练的深度学习模型（如 ResNet）来提取精确的图像特征，结合 Faiss 实现毫秒级的海量图片相似度匹配与查找。
 
-### 🔍 基于内容的图像检索
-- 多种图片输入方式：拖拽、文件选择、URL输入
-- 基于深度学习的特征提取（ResNet预训练模型）
-- Faiss高效相似度匹配
+## 项目演示
+<p>
+  <img width="380" src="demo/user2.png">
+  <img width="380" src="demo/user3.png">
+  <img width="380" src="demo/admin1.png">
+  <img width="380" src="demo/admin3.png">
+</p>
 
-### 📊 检索结果TOP-K展示
-- 图片墙展示界面
-- 相似度评分显示
-- 图片预览与大图查看
+## 支持的功能
+
+- 图像数据集导入和管理
+- 基于内容的图像检索
+- 检索结果 TOP-K 展示
+
 
 ## 技术栈
 
 ### 前端
-- **框架**: Vue 3
-- **UI组件**: Element Plus
-- **状态管理**: Pinia
-- **路由**: Vue Router
-- **HTTP客户端**: Axios
+- 框架: Vue 3
+- UI组件: Element Plus
+- 状态管理: Pinia
+- 路由: Vue Router
+- HTTP客户端: Axios
 
 ### 后端
-- **框架**: FastAPI
-- **图像处理**: PyTorch + torchvision
-- **特征提取**: 预训练ResNet模型
-- **相似度检索**: Faiss
-- **数据库**: MySQL
-- **文件存储**: 本地文件系统
+- 框架: FastAPI
+- 图像处理: PyTorch + torchvision
+- 特征提取: 预训练ResNet模型
+- 相似度检索: Faiss
+- 数据库: MySQL
+- 文件存储: 本地文件系统
 
 ### 基础设施
-- **配置管理**: YAML
-- **认证**: JWT Token
-- **日志**: Python logging
-
+- 配置管理: YAML
+- 认证: JWT Token
+- 日志: Python logging
 
 
 ## 快速开始
@@ -62,7 +67,7 @@ chmod +x install.sh
 
 #### 1. 克隆项目
 ```bash
-git clone <repository-url>
+git clone https://github.com/ldqk/ImageSearch.git
 cd faiss-image-search-v3
 ```
 

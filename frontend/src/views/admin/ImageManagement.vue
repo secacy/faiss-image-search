@@ -25,14 +25,6 @@
           />
         </el-col>
         <el-col :xs="12" :sm="4">
-          <el-select v-model="sortOrder" @change="handleSort" placeholder="排序">
-            <el-option label="最新上传" value="newest" />
-            <el-option label="最早上传" value="oldest" />
-            <el-option label="文件大小" value="size" />
-            <el-option label="文件名" value="name" />
-          </el-select>
-        </el-col>
-        <el-col :xs="12" :sm="4">
           <el-select v-model="pageSize" @change="handlePageSizeChange" placeholder="每页显示">
             <el-option label="20张" :value="20" />
             <el-option label="50张" :value="50" />
@@ -97,9 +89,6 @@
                 <el-button type="primary" size="small" :icon="View" @click.stop="openImageDetail(image)">
                   查看
                 </el-button>
-                <el-button type="info" size="small" :icon="Search" @click.stop="searchSimilar(image)">
-                  搜索
-                </el-button>
                 <el-button type="danger" size="small" :icon="Delete" @click.stop="deleteImage(image)">
                   删除
                 </el-button>
@@ -160,7 +149,6 @@
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="showImageDetail = false">关闭</el-button>
-          <el-button type="primary" @click="searchSimilar(currentImage)">相似搜索</el-button>
           <el-button type="danger" @click="deleteImage(currentImage)">删除图片</el-button>
         </div>
       </template>
@@ -185,7 +173,6 @@ const totalSize = ref(0)
 const currentPage = ref(1)
 const pageSize = ref(20)
 const searchKeyword = ref('')
-const sortOrder = ref('newest')
 const selectedImages = ref([])
 const showImageDetail = ref(false)
 const currentImage = ref(null)
@@ -197,8 +184,7 @@ const loadImages = async () => {
     const params = {
       page: currentPage.value,
       page_size: pageSize.value,
-      keyword: searchKeyword.value,
-      sort: sortOrder.value
+      keyword: searchKeyword.value
     }
     
     const response = await imageApi.getImages(params)
@@ -283,18 +269,6 @@ const formatDate = (dateString) => {
 const openImageDetail = (image) => {
   currentImage.value = image
   showImageDetail.value = true
-}
-
-// 相似搜索
-const searchSimilar = (image) => {
-  router.push({
-    name: 'SearchResults',
-    query: {
-      type: 'image_id',
-      image_id: image.id,
-      filename: image.original_name || image.filename
-    }
-  })
 }
 
 // 删除图片
