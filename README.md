@@ -10,20 +10,11 @@
 本项目是一个基于深度学习与 Faiss 构建的图像检索系统，允许您通过浏览器轻松地管理自己的图像数据集，并进行检索。
 系统利用了 PyTorch 加载预训练的深度学习模型（如 ResNet）来提取精确的图像特征，结合 Faiss 实现毫秒级的海量图片相似度匹配与查找。
 
-## 项目演示
-<p>
-  <img width="380" src="demo/user2.png">
-  <img width="380" src="demo/user3.png">
-  <img width="380" src="demo/admin1.png">
-  <img width="380" src="demo/admin3.png">
-</p>
-
 ## 支持的功能
 
 - 图像数据集导入和管理
 - 基于内容的图像检索
 - 检索结果 TOP-K 展示
-
 
 ## 技术栈
 
@@ -46,7 +37,6 @@
 - 配置管理: YAML
 - 认证: JWT Token
 - 日志: Python logging
-
 
 ## 快速开始
 
@@ -120,6 +110,15 @@ python backend/main.py
 cd frontend
 npm run dev
 ```
+
+## 示例效果
+<p>
+  <img width="380" src="demo/user2.png">
+  <img width="380" src="demo/user3.png">
+  <img width="380" src="demo/admin1.png">
+  <img width="380" src="demo/admin3.png">
+</p>
+
 
 ## 管理后台说明
 默认账号：admin / admin123
